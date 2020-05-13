@@ -16,6 +16,7 @@ import (
 )
 var server = Server{}
 
+// Controllers : All route controllers for GET and POST
 func Controllers(route *gin.Engine)  {
 
 	// page controller
@@ -39,18 +40,14 @@ func Controllers(route *gin.Engine)  {
 
 	//  db connectivity
 	var err error
-
 	err = godotenv.Load()
 	if err != nil {
 		log.Fatalf("Error getting env, not comming through %v", err)
 	} else {
 		fmt.Println("We are getting the env values")
 	}
-	
 	server.Initialize(os.Getenv("DB_DRIVER"), os.Getenv("DB_USER"), os.Getenv("DB_PASSWORD"), os.Getenv("DB_PORT"), os.Getenv("DB_HOST"), os.Getenv("DB_NAME"))
-	
-	fmt.Println("INCONTROLLER")
-	fmt.Println(server)
+
 
 	// Front end group
 	appGroup := route.Group("/", app)
@@ -62,11 +59,17 @@ func Controllers(route *gin.Engine)  {
 				})
 			})
 
-			appGroup.GET("/signup", func(ctx *gin.Context) {
-				ginview.HTML(ctx, http.StatusOK, "users/signup", gin.H{
-				"title": "GinGo | SIGN UP",
-				})
-			})
+			// appGroup.GET("/signup", func(ctx *gin.Context) {
+			// 	ginview.HTML(ctx, http.StatusOK, "users/signup", gin.H{
+			// 	"title": "GinGo | SIGN UP",
+			// 	})
+			// })
+
+			// appGroup.GET("/login", func(ctx *gin.Context) {
+			// 	ginview.HTML(ctx, http.StatusOK, "users/login", gin.H{
+			// 	"title": "GinGo | LOGIN",
+			// 	})
+			// })
 			
 
 		}
@@ -78,7 +81,8 @@ func Controllers(route *gin.Engine)  {
 	{
 		{
 			apiGroup.POST("/go_signup", server.UserRegister)
-			// s.Router.HandleFunc("/hom", middlewares.SetMiddlewareJSON(s.Home)).Methods("POST")
+
+			apiGroup.POST("/go_login", server.UserLogin)
 		}
 	}
 

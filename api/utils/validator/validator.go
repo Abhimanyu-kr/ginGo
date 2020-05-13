@@ -51,7 +51,5 @@ func ValidateMobile(name string , mobile string , minimum int, maximum int , reg
 	}
 
 	
-	
-
 	return nil
 }

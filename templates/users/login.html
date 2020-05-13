@@ -1,0 +1,40 @@
+{{define "content"}}
+
+<div class="col-md-10.offset-md-1 col-sm-12 col-sx-12 signup-login" id="login-box">
+    <div class="row">
+      <div class="col-md-6 col-sm-6 col-xs-12 float-left left">
+        <div class="block-title">Login</div>
+        <form class="login-validation" action="#" id="login-validation" novalidate>
+          <div class="row">
+
+            <!-- username -->
+            <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+              <label for="username">Username or E-mail</label>
+              <input type="text" class="form-control" placeholder="Enter username" id="login-username" name="username" minlength="5" maxlength="100" required autocomplete="off" data-parsley-required-message="This text field is required!" data-parsley-error-message="Please enter valid username or email">
+            </div>
+            
+
+            <!-- password -->
+            <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+              <label for="username">Password</label>
+              <input type="password" class="form-control" placeholder="Enter password" id="login-password" name="password" minlength="5" maxlength="100" required autocomplete="off" data-parsley-required-message="This text field is required!" data-parsley-error-message="Please enter minimum 5 characters">
+            </div>
+           
+            <div class="col-md-12">
+              <input type="submit" class="secondary-btn" name="signup_submit" value="Login" id="Login_call"/>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="col-md-6 col-sm-6 col-xs-12 float-left right">
+        <span class="loginwith">Sign in with<br />social network</span>
+      
+        <button class="social-signin facebook">Log in with facebook</button>
+        <button class="social-signin twitter">Log in with Twitter</button>
+        <button class="social-signin google">Log in with Google+</button>
+      </div>
+      
+    </div>
+  </div>
+
+  {{ end }}

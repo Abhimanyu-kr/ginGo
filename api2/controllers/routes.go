@@ -4,7 +4,6 @@ import "ginGo/api/middlewares"
 import "fmt"
 
 func (s *Server) initializeRoutes() {
-	fmt.Println("kminaaaaa")
 	// Home Route
 	s.Router.HandleFunc("/hom", middlewares.SetMiddlewareJSON(s.Home)).Methods("POST")
 

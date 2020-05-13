@@ -3,29 +3,27 @@
 <div class="col-md-10.offset-md-1 col-sm-12 col-sx-12 signup-login" id="login-box">
     <div class="row">
       <div class="col-md-6 col-sm-6 col-xs-12 float-left left">
-        <h1>Sign up</h1>
-        <form class="signup-validation" novalidate>
+        <div class="block-title">Sign up</div>
+        <form class="signup-validation" action="#" id="signup-validation" novalidate>
           <div class="row">
+
             <!-- username -->
-            <div class="col-md-6 col-sm-12 col-xs-12 md-form">
-              <label for="signin-username">Username</label>
-              <input type="text" class="form-control" name="username" id="signin-username" required>
-              <div class="valid-feedback">
-                Looks good!
-              </div>
+            <div class="col-md-6 col-sm-12 col-xs-12 form-group">
+              <label for="username">Username</label>
+              <input type="text" class="form-control" placeholder="Enter username" id="signin-username" name="username" minlength="5" maxlength="100" required autocomplete="off" data-parsley-required-message="This text field is required!" data-parsley-error-message="Please enter valid username">
             </div>
+            
 
             <!-- email -->
-            <div class="col-md-6 col-sm-12 col-xs-12  md-form">
-              <label for="signin-email">E-mail</label>
-              <input type="text" class="form-control" name="email" id="signin-email" required>
-              <div class="valid-feedback">
-                Looks good!
-              </div>
+            <div class="col-md-6 col-sm-12 col-xs-12 form-group">
+              <label for="email">E-mail</label>
+              <input type="email" class="form-control" placeholder="Enter e-mail" id="signin-email" name="email" required>
             </div>
 
+
             <!-- Country -->
-            <div class="col-md-6 col-sm-12 col-xs-12 md-form">
+            <div class="col-md-6 col-sm-12 col-xs-12 form-group">
+              <label for="country">Country</label>
                 <select class="custom-select browser-default" name="country" id="signin-country" required>
                   <option data-countryCode="IN" data-val="India" value="91" Selected>India (+91)</option>
                   <option data-countryCode="DZ" data-val="Algeria" value="213">Algeria (+213)</option>
@@ -151,33 +149,26 @@
             </div>
 
             <!-- mobile -->
-            <div class="col-md-6 col-sm-12 col-xs-12 md-form">
-              <label for="signin-mobile">Mobile</label>
-              <input type="number" class="form-control" name="mobile" id="signin-mobile" required>
-              <div class="valid-feedback">
-                Looks good!
-              </div>
+            <div class="col-md-6 col-sm-12 col-xs-12 form-group">
+              <label for="mobile">Mobile</label>
+              <input type="number" class="form-control" placeholder="Enter mobile" id="signin-mobile" name="mobile" minlength="10" maxlength="10" required data-parsley-required-message="This text field is required!" data-parsley-error-message="Please enter minimum 10 characters">
             </div>
+           
 
             <!-- password -->
-            <div class="col-md-6 col-sm-12 col-xs-12 md-form">
-              <label for="signin-password">Password</label>
-              <input type="password" class="form-control" name="password" id="signin-password" required>
-              <div class="valid-feedback">
-                Looks good!
-              </div>
+            <div class="col-md-6 col-sm-12 col-xs-12 form-group">
+              <label for="username">Password</label>
+              <input type="password" class="form-control" placeholder="Enter password" id="signin-password" name="password" minlength="5" maxlength="100" required autocomplete="off" data-parsley-required-message="This text field is required!" data-parsley-error-message="Please enter minimum 5 characters">
+            </div>
+           
+            <!-- re- password -->
+            <div class="col-md-6 col-sm-12 col-xs-12 form-group">
+              <label for="username">Retype Password</label>
+              <input type="password" class="form-control" placeholder="Re-enter password" id="signin-retype-password" name="password-control" required autocomplete="off"  data-parsley-equalto="#signin-password">
             </div>
 
-            <!-- re- password -->
-            <div class="col-md-6 col-sm-12 col-xs-12 md-form">
-              <label for="signin-retype-password">Retype Password</label>
-              <input type="password" class="form-control" name="re-password" id="signin-retype-password" required>
-              <div class="valid-feedback">
-                Looks good!
-              </div>
-            </div>
             <div class="col-md-12">
-              <input type="submit" name="signup_submit" value="Sign up" id="signup_call"/>
+              <input type="submit" class="secondary-btn" name="signup_submit" value="Sign up" id="signup_call"/>
             </div>
           </div>
         </form>

@@ -7,17 +7,18 @@ import (
 
 	"github.com/gorilla/mux"
 	"github.com/jinzhu/gorm"
-
+	// for mysql
 	_ "github.com/jinzhu/gorm/dialects/mysql"    
 
-	// "ginGo/api/models"
 )
 
+// Server : Store server db connections
 type Server struct {
 	DB     *gorm.DB
 	Router *mux.Router
 }
 
+// Initialize : Db connection
 func (server *Server) Initialize(Dbdriver, DbUser, DbPassword, DbPort, DbHost, DbName string) {
 
 	var err error
@@ -43,14 +44,11 @@ func (server *Server) Initialize(Dbdriver, DbUser, DbPassword, DbPort, DbHost, D
 		}
 	}
 
-	// server.DB.Debug().AutoMigrate(&models.User{}, &models.Post{}) //database migration
-
 	server.Router = mux.NewRouter()
-
-	// server.initializeRoutes()
 }
 
+// Run : Run Server
 func (server *Server) Run(addr string) {
-	fmt.Println("Listening to port 8080")
+	fmt.Println("Listening to port 3001")
 	log.Fatal(http.ListenAndServe(addr, server.Router))
 }
